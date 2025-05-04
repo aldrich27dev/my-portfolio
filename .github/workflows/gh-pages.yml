@@ -3,7 +3,7 @@ name: Deploy Astro site to GitHub Pages
 on:
   push:
     branches:
-      - main # Change to 'master' if that's your default branch
+      - main  # Change to 'master' if that's your default branch
 
 permissions:
   contents: read
@@ -31,18 +31,4 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Configure Pages deployment
-        uses: actions/configure-pages@v3
-
-      - name: Upload artifact to GitHub Pages
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ./dist # Path to your build output (change if necessary)
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
-        id: deployment
+    runs-on
