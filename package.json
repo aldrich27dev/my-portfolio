@@ -5,10 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@astrojs/react": "^1.2.2",
@@ -22,6 +21,7 @@
   },
   "devDependencies": {
     "eslint": "^8.26.0",
-    "eslint-plugin-astro": "^0.20.0"
+    "eslint-plugin-astro": "^0.20.0",
+    "gh-pages": "^6.3.0"
   }
 }
