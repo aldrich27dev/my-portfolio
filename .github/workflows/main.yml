@@ -1,33 +1,41 @@
-name: Deploy Astro to GitHub Pages
+name: 🚀 Deploy website on push
 
 on:
   push:
     branches:
-      - main # or "master", depending on your default branch
-
-permissions:
-  contents: write
+      - master
 
 jobs:
-  deploy:
+  build-and-deploy:
+    name: 🎉 Build and Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: '20'
 
-      - name: Install dependencies
-        run: npm install
+      - name: 📦 Install dependencies
+        run: npm install --legacy-peer-deps
 
-      - name: Build the site
+      - name: 🔨 Build project
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: 📂 List directory contents
+        run: ls -la
+
+      - name: 📂 Deploy to FTP
+        uses: sand4rt/ftp-deployer@v1.8
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          sftp: ${{ secrets.SFTP }}
+          host: ${{ secrets.FTP_SERVER }}
+          port: ${{ secrets.FTP_PORT }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          remote_folder: ${{ secrets.FTP_DIR }}
+          local_folder: ${{ secrets.LOCAL_FOLDER }}
+          cleanup: ${{ secrets.CLEANUP }}
+          passive: ${{ secrets.PASSIVE }}
