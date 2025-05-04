@@ -1,9 +1,9 @@
 <h1 align="center">
   <div align="center">
-    <img alt="Devenpauros (Daniel Gomez) logo" src="./public/favicon.svg" height="150px" width="auto"/>
+    <img alt="aldrich27dev Aldrich Naag - logo" src="./public/favicon.svg" height="150px" width="auto"/>
   </div>
   <br/>
-  Portfolio - Daniel Gomez
+  Portfolio - Aldrich Naag
 </h1>
 <p align="center">
     My personal portfolio built with Astro.
@@ -18,15 +18,14 @@
 
 This project was built using these technologies:
 
-* Astro
-* Netlify services
+- Astro
+- Netlify services
 
 ## Features
 
-* 🚀 A great web performance
-* 📱 Fully Responsive
-* ☀️ Light and Dark Theme
-
+- 🚀 A great web performance
+- 📱 Fully Responsive
+- ☀️ Light and Dark Theme
 
 ## Getting Started
 
@@ -36,9 +35,9 @@ Clone down this repository. You will need `node.js` and `git` installed globally
 
 1. In the project directory, run:
 
- ```
- npm install
- ```
+```
+npm install
+```
 
 2. After, you can run:
 
