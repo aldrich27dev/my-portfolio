@@ -6,14 +6,17 @@
         <h1
             class="text-[1.1rem] text-light-gray-primary py-[9px] px-8 w-fit font-semibold rounded-3xl bg-[#0001] dark:bg-[#fff1] dark:text-dark-texto-secondary"
         >
-            Hola!<span class="hi inline">👋</span> Soy Daniel Gómez
+            Hello!<span class="hi inline">👋</span> I'm Aldrich Naag
         </h1>
         <p
             class="text-[3.3rem] sm:text-[3.3rem] md:text-[4.2rem] font-black leading-[3rem] sm:leading-[4rem] text-[#111] dark:text-[#f3f3f3]"
             id="slogan0"
         >
-            Desarrollador con pasión por construir sitios web <span
-                class="text-primary">memorables</span
+            <span
+                class="text-primary">Frontend developer</span> and <span class="text-primary">Graphic Desinger</span
+            > with expertise in <span
+                class="text-primary expertise-container" id="expertise-container"><span id="expertise-text"></span>
+                <span class="typing-cursor">|</span></span
             >.
         </p>
     </div>
@@ -24,11 +27,11 @@
             <span
                 class="flex items-center font-bold bg-[#0001] dark:bg-[#fff1] py-1 px-3 rounded-xl"
             >
-                +2.6
+                +1.6
             </span>
             <span
                 class="text-[0.71rem] sm:text-[0.81rem] leading-[1] text-center sm:text-left"
-                >Años de<br />experiencia</span
+                >1+ years<br />experience</span
             >
         </li>
         <span
@@ -39,11 +42,11 @@
                 class="flex items-center font-bold bg-[#0001] dark:bg-[#fff1] py-1 px-3 rounded-xl"
                 id="code-lines"
             >
-                100k
+                20k
             </span>
             <span
                 class="text-[0.71rem] sm:text-[0.81rem] leading-[1] text-center sm:text-left"
-                >Lineas de <br />código escritas</span
+                >Lines of <br />code written</span
             >
         </li>
         <span
@@ -53,11 +56,11 @@
             <span
                 class="flex items-center font-bold bg-[#0001] dark:bg-[#fff1] py-1 px-3 rounded-xl"
             >
-                5.6k
+                300+
             </span>
             <span
                 class="text-[0.71rem] sm:text-[0.81rem] leading-[1] text-center sm:text-left"
-                >Tazas de café<br />consumidas</span
+                >Cups of coffee<br />consumed</span
             >
         </li>
     </ul>
@@ -81,7 +84,7 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"></path>
             </svg>
-            <span>Contactar ahora</span>
+            <span>Contact Me</span>
         </a>
         <!-- <a
             href="#contact"
@@ -104,10 +107,62 @@
         </a> -->
     </div>
 </section>
-<!-- <script>
-    let sloganSeed = Math.round(Math.random());
-    console.log(`slogan${sloganSeed}`);
-    let sloganParagraph = document.getElementById(`slogan${sloganSeed}`);
-    sloganParagraph.classList.remove("hidden");
-    sloganParagraph.classList.add("inline");
-</script> -->
+<script>
+const expertiseOptions = [
+        "Web designs",
+        "React.JS",
+        "Photoshop"
+    ];
+    
+    const expertiseText = document.getElementById('expertise-text');
+    const expertiseContainer = document.getElementById('expertise-container');
+    let currentIndex = 0;
+    let isTyping = true;
+    let textPosition = 0;
+    let currentText = '';
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        .expertise-container {
+            display: inline-block;
+            min-height: 1.2em;
+        }
+        .typing-cursor {
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    function typeText() {
+        const targetText = expertiseOptions[currentIndex];
+        
+        if (isTyping) {
+            if (textPosition < targetText.length) {
+                currentText = targetText.substring(0, textPosition + 1);
+                expertiseText.textContent = currentText;
+                textPosition++;
+                setTimeout(typeText, 100);
+            } else {
+                isTyping = false;
+                setTimeout(typeText, 2000);
+            }
+        } else {
+            if (textPosition > 0) {
+                currentText = targetText.substring(0, textPosition - 1);
+                expertiseText.textContent = currentText;
+                textPosition--;
+                setTimeout(typeText, 50);
+            } else {
+                isTyping = true;
+                currentIndex = (currentIndex + 1) % expertiseOptions.length;
+                setTimeout(typeText, 500);
+            }
+        }
+    }
+    
+    typeText();
+</script>
