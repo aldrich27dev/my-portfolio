@@ -11,4 +11,5 @@ export default defineConfig({
   integrations: [react(), tailwind()],
   site: 'https://aldrich27dev.github.io',
   base: '/my-portfolio/',
+  outDir: 'dist',
 });
